@@ -13,12 +13,17 @@ import java.awt.Color;
 public class Editor3 {
 
 	public static void main (String[] args) {
+
+		// get the source file name the target file name and the number of steps
 		String source = args[0];
 		String target = args[1];
 		int n = Integer.parseInt(args[2]);
+
+		// read the source image and the target image
 		Color[][] sourceImage = Runigram.read(source);
 		Color[][] targetImage = Runigram.read(target);
-		Runigram.setCanvas(sourceImage);
+
+		// show morph from the source image to the target image
 		Runigram.morph(sourceImage, targetImage, n);
 	}
 }
