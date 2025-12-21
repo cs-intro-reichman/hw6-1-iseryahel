@@ -16,7 +16,7 @@ public class Runigram {
 		Color[][] image;
 
 		// Tests the horizontal flipping of an image:
-		image = flippedHorizontally(tinypic);
+		image = scaled(tinypic, 5, 5);
 		System.out.println();
 		print(image);
 		
@@ -35,7 +35,7 @@ public class Runigram {
 		in.readInt();
 		// Creates the image array
 		Color[][] image = new Color[numRows][numCols];
-		 // read rgb values of each pixel and store them in the array
+		 // read rgb values of each pixel and put them in the array
         for (int i = 0; i < numRows; i++) {
             for (int j = 0; j < numCols; j++) {
                 int r = in.readInt();
@@ -47,12 +47,12 @@ public class Runigram {
         return image;
 	}
 
-    // Prints the RGB values of a given color.
+    // Prints the RGB values of a color the function get
 	private static void print(Color c) {
 	    System.out.print("(");
-		System.out.printf("%3s,", c.getRed());   // Prints the red component
-		System.out.printf("%3s,", c.getGreen()); // Prints the green component
-        System.out.printf("%3s",  c.getBlue());  // Prints the blue component
+		System.out.printf("%3s,", c.getRed());   
+		System.out.printf("%3s,", c.getGreen()); 
+        System.out.printf("%3s",  c.getBlue());  
         System.out.print(")  ");
 	}
 
@@ -119,7 +119,7 @@ public class Runigram {
 	// lum = 0.299 * r + 0.587 * g + 0.114 * b, and returns a Color object consisting
 	// the three values r = lum, g = lum, b = lum.
 	private static Color luminance(Color pixel) {
-		// compute brightness from red green and blue of the pixel
+		// compute brightness from red green blue of the pixel
         int lum = (int) (0.299 * pixel.getRed()
                        + 0.587 * pixel.getGreen()
                        + 0.114 * pixel.getBlue());
@@ -185,7 +185,7 @@ public class Runigram {
 	 * values in the two input color.
 	 */
 	public static Color blend(Color c1, Color c2, double alpha) {
-		   // mix red values of the two colors
+		// mix red values of the two colors
         int newRed = (int) (alpha * c1.getRed() + (1 - alpha) * c2.getRed());
 
         // mix green values of the two colors
